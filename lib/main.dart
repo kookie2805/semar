@@ -1010,7 +1010,7 @@ class MenuPage extends StatelessWidget {
                     children: [
                       _buildButtonWithAsset(
                         context,
-                        'Informasi Semarang 1',
+                        'Informasi Semarang',
                         'assets/images/book.png',
                         StartPage(),
                       ),
