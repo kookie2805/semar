@@ -291,7 +291,7 @@ void showVolumeDialog(String type) {
 
 Future<void> playSound() async {
     // Memutar file suara lokal atau dari URL
-    await _audioPlayer.play('assets/audio/audiocoba1.mp3'); // Ganti path dengan file audio Anda
+    await _audioPlayer.play(DeviceFileSource('assets/audio/audiocoba1.mp3')); // Ganti path dengan file audio Anda
   }
 
 

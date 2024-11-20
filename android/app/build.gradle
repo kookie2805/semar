@@ -11,12 +11,12 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_22
-        targetCompatibility = JavaVersion.VERSION_22
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_22
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     defaultConfig {
@@ -37,17 +37,19 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
-}// In your project-level build.gradle
-buildscript {
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.11' // Update to the latest version
-    }
 }
 
-// In your gradle-wrapper.properties
-{distributionUrl=https://services.gradle.org/distributions/gradle-8.11-bin.zip // Update to the latest versionflutter {
-    source = "../.."
-}
+
+// // In your project-level build.gradle
+// buildscript {
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:8.11' // Update to the latest version
+//     }
+// }
+// // In your gradle-wrapper.properties
+// {distributionUrl=https://services.gradle.org/distributions/gradle-8.11-bin.zip // Update to the latest versionflutter {
+//     source = "../.."
+// }
 
 repositories {
     google()
