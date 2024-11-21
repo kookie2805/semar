@@ -33,6 +33,8 @@ dependencies:
   font_awesome_flutter: ^10.1.0 
   page_transition: ^2.0.9
   percent_indicator: ^4.2.2 
+  flutter_volume_controller: ^1.3.2
+  audioplayers: ^2.0.0
 
 
 
