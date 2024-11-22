@@ -9,8 +9,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:smart/profilepage.dart';
-import 'package:flutter_volume_controller/flutter_volume_controller.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(MyApp());
@@ -146,201 +144,177 @@ class BackgroundPg extends StatelessWidget {
   }
 }
 
-// Back
-class BasePage extends StatefulWidget {
-  final String title;
-  final Widget body;
-
-  BasePage({required this.title, required this.body});
-
-  @override
-  _BasePageState createState() => _BasePageState();
-}
-
-class _BasePageState extends State<BasePage> {
-  DateTime? lastPressed;
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        final now = DateTime.now();
-        if (lastPressed == null || now.difference(lastPressed!) > Duration(seconds: 2)) {
-          lastPressed = now;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Tekan sekali lagi untuk keluar!"),
-              duration: Duration(seconds: 2),
-            ),
-          );
-          return false; // Prevent the page from popping
-        }
-        return true; // Allow the page to pop
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: widget.body,
-      ),
-    );
-  }
-}
+    return Scaffold(
+      body: Stack(
+        children: [
+          Background(),
+          // Positioned(
+          //   top: 20,
+          //   left: 20,
+          //   child: Text(
+          //     'Unikki\nDeveloper',
+          //     style: TextStyle(
+          //       fontFamily: 'Lilita',
+          //       fontSize: 14,
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: Image.asset(
+          //       // 'android/assets/image/Biru_dan_Krem_Modern_Menuju_Stabilitas_Finansial_Presentation__1_-removebg-preview.png',
+          //     ),
+          //   ),
+          // ),
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  DateTime? lastPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        final now = DateTime.now();
-        if (lastPressed == null || now.difference(lastPressed!) > Duration(seconds: 2)) {
-          lastPressed = now;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Tekan sekali lagi untuk keluar!"),
-              duration: Duration(seconds: 2),
-            ),
-          );
-          return false; // Prevent the page from popping
-        }
-        return true; // Allow the page to pop
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Background(),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 40.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 305.0, bottom: 30.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            SizedBox(height: 3),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 0.01),
-                            ),
-                          ],
-                        ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(right: 305.0, bottom: 30.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          // Text(
+                          //   'SEMAR',
+                          //   style: TextStyle(
+                          //     fontFamily: 'Lilita',
+                          //     fontSize: 39,
+                          //     color: Colors.white,
+                          //   ),
+                          // ),
+                          SizedBox(height: 3),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 0.01),
+                            // child: Text(
+                            //   'Seputar Semarang',
+                            //   style: TextStyle(
+                            //     fontFamily: 'Lilita',
+                            //     fontSize: 18,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 315.0, top: 90.0),
-                        child: Opacity(
-                          opacity: 0.7,
-                          child: Container(
-                            width: 134,
-                            height: 134,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color.fromARGB(255, 249, 247, 246),
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(_createRoute());
-                              },
-                              child: Center(
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  size: 100,
-                                  color: const Color.fromARGB(255, 114, 193, 201),
-                                ),
+                  ),
+                  SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 315.0, top: 90.0),
+                      child: Opacity(
+                        opacity: 0.7,
+                        child: Container(
+                          width: 134,
+                          height: 134,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(255, 249, 247, 246),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(_createRoute());
+                            },
+                            child: Center(
+                              child: Icon(
+                                Icons.play_arrow,
+                                size: 100,
+                                color: const Color.fromARGB(255, 114, 193, 201),
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 3,
-              right: 10,
-              left: 700,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AboutUsPage()),
-                  );
-                },
-                child: Image.asset(
-                  'android/assets/image/tombol unikki 1.png',
-                  width: 70,
-                  height: 70,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 10,
-              right: 20,
-              bottom: 310,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SettingsPage()),
-                      );
-                    },
-                  ),
-                  SizedBox(width: 10),
-                  IconButton(
-                    icon: Icon(
-                      Icons.person,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                    },
                   ),
                 ],
               ),
             ),
-            Positioned(
-              bottom: 35,
-              left: 55,
-              child: Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('android/assets/image/Group 16-2.png'),
-                    fit: BoxFit.cover,
+          ),
+          Positioned(
+            bottom: 3,
+            // Adjust the position as needed
+            right: 10,
+            left: 700, // Adjust the position as needed
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsPage()),
+                );
+              },
+              child: Image.asset(
+                'android/assets/image/tombol unikki 1.png', // Ganti dengan path gambar Anda
+                width: 70, // Adjust the size as needed
+                height: 70, // Adjust the size as needed
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 20,
+            bottom: 310,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.settings,
+                    size: 30,
+                    color: Colors.white,
                   ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()),
+                    );
+                  },
+                ),
+                SizedBox(width: 10), // Space between the icons
+                IconButton(
+                  icon: Icon(
+                    Icons.person,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 35,
+            left: 55,
+            child: Container(
+              width: 30, // Ukuran logo
+              height: 30, // Ukuran logo
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                      'android/assets/image/Group 16-2.png'), // Ganti dengan path logo Instagram Anda
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-          ],
-        ),
+          ), // Space between the icon and text
+        ],
       ),
     );
   }
@@ -392,7 +366,7 @@ Widget _buildDoor(
       );
     },
   );
-} 
+}
 
 class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -991,7 +965,7 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundPg(), // Background widget
+          BackgroundPg(),
           Positioned(
             top: 20,
             left: 20,
@@ -1001,7 +975,7 @@ class MenuPage extends StatelessWidget {
                 Navigator.of(context).push(
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        HomeScreen(), // Ganti dengan HomeScreen
+                        HomeScreen(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       return Stack(
@@ -1055,16 +1029,16 @@ class MenuPage extends StatelessWidget {
                     children: [
                       _buildButtonWithAsset(
                         context,
-                        'Informasi',
+                        'Informasi baceull',
                         'assets/images/book.png',
-                        StartPage(), // Ganti dengan halaman informasi
+                        StartPage(),
                       ),
                       SizedBox(width: 70),
                       _buildButtonWithAsset(
                         context,
                         'Quiz',
                         'assets/images/quiz.png',
-                        QuizPage(), // Ganti dengan halaman kuis
+                        QuizPage(),
                       ),
                     ],
                   ),
@@ -1164,127 +1138,106 @@ class MenuPage extends StatelessWidget {
   }
 }
 
-class StartPage extends StatefulWidget {
-  @override
-  _StartPageState createState() => _StartPageState();
-}
-
-class _StartPageState extends State<StartPage> {
-  DateTime? lastPressed;
-
+class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        final now = DateTime.now();
-        if (lastPressed == null || now.difference(lastPressed!) > Duration(seconds: 2)) {
-          lastPressed = now;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Tekan sekali lagi untuk keluar!"),
-              duration: Duration(seconds: 2),
+    return Scaffold(
+      body: Stack(
+        children: [
+          BackgroundPg(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          MenuPage()), // Ganti StartPage dengan MenuPage
+                );
+              },
             ),
-          );
-          return false; // Prevent the page from popping
-        }
-        return true; // Allow the page to pop
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            BackgroundPg(),
-            Positioned(
-              top: 20,
-              left: 20,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MenuPage()), // Ganti StartPage dengan MenuPage
-                  );
-                },
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30.0, right: 40.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      // Teks di atas tombol
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 0.0, bottom: 10.0, right: 17.0),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Tema Apa Yang Mau Kamu Pilih?',
-                            style: TextStyle(
-                              fontFamily: 'Lilita',
-                              fontSize: 25,
-                              color: Colors.white,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black,
-                                  blurRadius: 2.0,
-                                  offset: Offset(1.0, 1.0),
-                                ),
-                              ],
-                            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0, right: 40.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    // Teks di atas tombol
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 0.0, bottom: 10.0, right: 17.0),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'Tema Apa Yang Mau Kamu Pilih?',
+                          style: TextStyle(
+                            fontFamily: 'Lilita',
+                            fontSize: 25,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                blurRadius: 2.0,
+                                offset: Offset(1.0, 1.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      // Baris pertama tombol
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          _buildButtonWithAsset(
-                            context,
-                            'Sejarah Semarang',
-                            'android/assets/image/asetLB.png',
-                            SejarahSemarangPage(),
-                          ),
-                          SizedBox(width: 20),
-                          _buildButtonWithAsset(
-                            context,
-                            'Monumen',
-                            'android/assets/image/mnon.png',
-                            MonumenPage(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      // Baris kedua tombol
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          _buildButtonWithAsset(
-                            context,
-                            'Destinasi',
-                            'android/assets/image/dstn.png',
-                            DestinasiPage(),
-                          ),
-                          SizedBox(width: 20),
-                          _buildButtonWithAsset(
-                            context,
-                            'Makanan',
-                            'android/assets/image/mkn.png',
-                            MakananPage(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      // Tombol tambahan untuk Quiz
-                    ],
-                  ),
+                    ),
+                    // Baris pertama tombol
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _buildButtonWithAsset(
+                          context,
+                          'Sejarah Semarang',
+                          'android/assets/image/asetLB.png',
+                          SejarahSemarangPage(),
+                        ),
+                        SizedBox(width: 20),
+                        _buildButtonWithAsset(
+                          context,
+                          'Monumen',
+                          'android/assets/image/mnon.png',
+                          MonumenPage(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    // Baris kedua tombol
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _buildButtonWithAsset(
+                          context,
+                          'Destinasi',
+                          'android/assets/image/dstn.png',
+                          DestinasiPage(),
+                        ),
+                        SizedBox(width: 20),
+                        _buildButtonWithAsset(
+                          context,
+                          'Makanan',
+                          'android/assets/image/mkn.png',
+                          MakananPage(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    // Tombol tambahan untuk Quiz
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -1341,6 +1294,7 @@ class _StartPageState extends State<StartPage> {
     );
   }
 }
+
 // class Mainkan extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
@@ -1462,126 +1416,102 @@ class _StartPageState extends State<StartPage> {
 //   }
 // }
 
-class QuizPage extends StatefulWidget {
-  @override
-  _QuizPageState createState() => _QuizPageState();
-}
-
-class _QuizPageState extends State<QuizPage> {
-  DateTime? lastPressed;
-
+class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        final now = DateTime.now();
-        if (lastPressed == null || now.difference(lastPressed!) > Duration(seconds: 2)) {
-          lastPressed = now;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Tekan sekali lagi untuk keluar!"),
-              duration: Duration(seconds: 2),
+    return Scaffold(
+      body: Stack(
+        children: [
+          BackgroundPg(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
+              onPressed: () {
+                Navigator.of(context)
+                    .pop(); // Menggunakan pop untuk kembali ke halaman sebelumnya
+              },
             ),
-          );
-          return false; // Prevent the page from popping
-        }
-        return true; // Allow the page to pop
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            BackgroundPg(), // Background page widget
-            Positioned(
-              top: 20,
-              left: 20,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MenuPage()), // Ganti dengan MenuPage
-                  );
-                },
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30.0, right: 40.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      // Teks di atas tombol
-                      Padding(
-                        padding: const EdgeInsets.only(top: 0.0, bottom: 10.0, right: 17.0),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Quiz Apa Yang Mau Kamu Pilih?',
-                            style: TextStyle(
-                              fontFamily: 'Lilita',
-                              fontSize: 25,
-                              color: Colors.white,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black,
-                                  blurRadius: 2.0,
-                                  offset: Offset(1.0, 1.0),
-                                ),
-                              ],
-                            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0, right: 40.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    // Teks di atas tombol
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 0.0, bottom: 10.0, right: 17.0),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'Quiz Apa Yang Mau Kamu Pilih?',
+                          style: TextStyle(
+                            fontFamily: 'Lilita',
+                            fontSize: 25,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                blurRadius: 2.0,
+                                offset: Offset(1.0, 1.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      // Baris pertama tombol
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          _buildButtonWithAsset(
-                            context,
-                            'Sejarah Semarang',
-                            'android/assets/image/asetLB.png',
-                            SejarahQuizPage(),
-                          ),
-                          SizedBox(width: 20),
-                          _buildButtonWithAsset(
-                            context,
-                            'Monumen',
-                            'android/assets/image/mnon.png',
-                            MonumenQuizPage(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      // Baris kedua tombol
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          _buildButtonWithAsset(
-                            context,
-                            'Destinasi',
-                            'android/assets/image/dstn.png',
-                            DestinasiQuizPage(),
-                          ),
-                          SizedBox(width: 20),
-                          _buildButtonWithAsset(
-                            context,
-                            'Makanan',
-                            'android/assets/image/mkn.png',
-                            MakananQuizPage(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      // Tombol tambahan untuk Quiz
-                    ],
-                  ),
+                    ),
+                    // Baris pertama tombol
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _buildButtonWithAsset(
+                          context,
+                          'Sejarah Semarang',
+                          'android/assets/image/asetLB.png',
+                          SejarahQuizPage(),
+                        ),
+                        SizedBox(width: 20),
+                        _buildButtonWithAsset(
+                          context,
+                          'Monumen',
+                          'android/assets/image/mnon.png',
+                          MonumenQuizPage(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    // Baris kedua tombol
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _buildButtonWithAsset(
+                          context,
+                          'Destinasi',
+                          'android/assets/image/dstn.png',
+                          DestinasiQuizPage(),
+                        ),
+                        SizedBox(width: 20),
+                        _buildButtonWithAsset(
+                          context,
+                          'Makanan',
+                          'android/assets/image/mkn.png',
+                          MakananQuizPage(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    // Tombol tambahan untuk Quiz
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -3096,196 +3026,43 @@ class MorePage extends StatelessWidget {
   }
 }
 
-//setting
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
-
-  @override
-  _SettingsPageState createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  double volumeSuara = 0.5; // Default volume for "SUARA"
-  double volumeMusik = 0.5;
-  final AudioPlayer _audioPlayer = AudioPlayer();
-  
-  get currentVolume => null; // Default volume for "MUSIK"
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize volume levels (0.0 - 1.0 scale)
-    FlutterVolumeController.getVolume().then((value) {
-      setState(() {
-        volumeSuara = value; 
-        volumeMusik = value;
-      });
-    });
-  }
-
-void showVolumeDialog(String type) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white.withOpacity(0.85),
-        title: Text(
-          'Atur Volume $type',
-          style: const TextStyle(
-            fontFamily: 'Lilita',
-            fontSize: 20,
-          ),
-        ),
-        content: StatefulBuilder(
-          builder: (BuildContext context, StateSetter setStateDialog) {
-            double currentVolume = type == 'Suara' ? volumeSuara : volumeMusik;
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Slider(
-                  value: currentVolume,
-                  min: 0.0,
-                  max: 1.0,
-                  activeColor: Colors.cyanAccent,
-                  inactiveColor: Colors.grey,
-                  onChanged: (value) {
-                    setState(() {
-                      if (type == 'Suara') {
-                        volumeSuara = value;
-                      } else {
-                        volumeMusik = value;
-                      }
-                    });
-                    setStateDialog(() {}); // Perbarui slider di dalam dialog
-                    FlutterVolumeController.setVolume(value); // Panggil metode untuk mengatur volume
-                    _audioPlayer.setVolume(value);
-                  },
-                ),
-
-                // Menambahkan angka di bawah slider
-                Text(
-                  '${(currentVolume * 100).toStringAsFixed(0)}', // Menampilkan nilai persentase
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Lilita',
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-        actions: [
-          TextButton(
-            child: const Text(
-              'Tutup',
-              style: TextStyle(
-                fontFamily: 'Lilita',
-                fontSize: 16,
-                color: Colors.black,
-              ),
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-
-Future<void> playSound() async {
-    // Memutar file suara lokal atau dari URL
-    await _audioPlayer.play(DeviceFileSource('assets/audio/audiocoba1.mp3')); // Ganti path dengan file audio Anda
-  }
-
-
-
+class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/PENGATURAN.1 (2).png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          BackgroundPg(),
+          // Positioned.fill(
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: Image.asset(
+          //       'android/assets/image/Biru_dan_Krem_Modern_Menuju_Stabilitas_Finansial_Presentation__1_-removebg-preview.png',
+          //       // Same background image as in HomeScreen
+          //     ),
+          //   ),
+          // ),
           Positioned(
-            top: 30,
-            left: 30,
-            child: Row(
-              children: [
-                IconButton(
-                  icon: const FaIcon(FontAwesomeIcons.arrowLeft),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                const Text(
-                  'Pengaturan',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Lilita',
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+            top: 20,
+            left: 20,
+            child: IconButton(
+              icon: Icon(Icons.home, color: Colors.white, size: 30),
+              onPressed: () {
+                Navigator.pop(context); // Navigate back to home
+              },
             ),
           ),
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(200, 60),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    backgroundColor: Colors.white,
-                  ),
-                  child: const Text(
-                    'SUARA',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Lilita',
-                      color: Colors.black,
-                    ),
-                  ),
-                  onPressed: () {
-                    showVolumeDialog('Suara');
-                  },
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'DALAM PENGEMBANGAN',
+                style: TextStyle(
+                  fontFamily: 'Lilita',
+                  fontSize: 24,
+                  color: Colors.white,
                 ),
-                const SizedBox(height: 35),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(200, 60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      backgroundColor: Colors.white,
-                    ),
-                    child: const Text(
-                      'MUSIK',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Lilita',
-                        color: Colors.black,
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound();
-                      showVolumeDialog('Musik');
-                    }),
-              ],
+              ),
             ),
           ),
         ],
@@ -3293,20 +3070,6 @@ Future<void> playSound() async {
     );
   }
 }
-
-class FlutterVolumeController {
-  static void setVolume(double value) {
-    // Implementasi setVolume Anda
-  }
-
-  static Future<double> getVolume() async {
-    // Pastikan fungsi ini mengembalikan nilai double yang valid
-    // Gunakan nilai default jika hasilnya null
-    double? volume = await FlutterVolumeController.getVolume();
-    return volume; // default 0.5 jika null
-  }
-}
-
 
 class SejarahSemarangPage extends StatelessWidget {
   @override
