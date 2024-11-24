@@ -9,6 +9,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:smart/profilepage.dart';
+import 'package:flutter_volume_controller/flutter_volume_controller.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(MyApp());
@@ -292,7 +294,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      MaterialPageRoute(builder: (context) => ProfilPage()),
                     );
                   },
                 ),
@@ -862,6 +864,137 @@ class RegisterPage extends StatelessWidget {
             )
           ])))
     ]));
+  }
+}
+
+class ProfilPage extends StatelessWidget {
+  // Metode untuk membuat container
+  Widget _buildContainer(String title, String assetPath) {
+    return Container(
+      width: 230,
+      height: 210,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(11),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            assetPath,
+            height: 85,
+            width: 85,
+          ),
+          SizedBox(height: 10),
+          Text(
+            title,
+            style: TextStyle(
+              fontFamily: 'Lilita',
+              fontSize: 16,
+              color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Metode build yang benar
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          BackgroundPg(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: IconButton(
+              icon: Icon(Icons.home, color: Colors.white, size: 30),
+              onPressed: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        HomeScreen(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return Stack(
+                        children: [
+                          _buildDoor(context, animation, true),
+                          _buildDoor(context, animation, false),
+                          FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          ),
+                        ],
+                      );
+                    },
+                    transitionDuration: Duration(seconds: 1),
+                  ),
+                );
+              },
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Text(
+                      'Menu Apa Yang Mau Kamu Pilih?',
+                      style: TextStyle(
+                        fontFamily: 'Lilita',
+                        fontSize: 25,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black,
+                            blurRadius: 2.0,
+                            offset: Offset(1.0, 1.0),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Center(
+  child: Transform.translate(
+    offset: Offset(-20, 0), // Geser kedua container ke kiri
+    child: Row(
+      mainAxisSize: MainAxisSize.min, // Buat row seminimal mungkin
+      children: [
+        _buildContainer(
+          'Informasi', 
+          'assets/images/book.png',
+        ),
+        _buildContainer(
+          'Quiz', 
+          'assets/images/quiz.png',
+        ),
+      ],
+    ),
+  ),
+),
+                  SizedBox(height: 30),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -3026,48 +3159,213 @@ class MorePage extends StatelessWidget {
   }
 }
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  double volumeSuara = 0.5; // Default volume for "SUARA"
+  double volumeMusik = 0.5;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  
+  get currentVolume => null; // Default volume for "MUSIK"
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize volume levels (0.0 - 1.0 scale)
+    FlutterVolumeController.getVolume().then((value) {
+      setState(() {
+        volumeSuara = value; 
+        volumeMusik = value;
+      });
+    });
+  }
+
+void showVolumeDialog(String type) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.white.withOpacity(0.85),
+        title: Text(
+          'Atur Volume $type',
+          style: const TextStyle(
+            fontFamily: 'Lilita',
+            fontSize: 20,
+          ),
+        ),
+        content: StatefulBuilder(
+          builder: (BuildContext context, StateSetter setStateDialog) {
+            double currentVolume = type == 'Suara' ? volumeSuara : volumeMusik;
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Slider(
+                  value: currentVolume,
+                  min: 0.0,
+                  max: 1.0,
+                  activeColor: Colors.cyanAccent,
+                  inactiveColor: Colors.grey,
+                  onChanged: (value) {
+                    setState(() {
+                      if (type == 'Suara') {
+                        volumeSuara = value;
+                      } else {
+                        volumeMusik = value;
+                      }
+                    });
+                    setStateDialog(() {}); // Perbarui slider di dalam dialog
+                    FlutterVolumeController.setVolume(value); // Panggil metode untuk mengatur volume
+                    _audioPlayer.setVolume(value);
+                  },
+                ),
+
+                // Menambahkan angka di bawah slider
+                Text(
+                  '${(currentVolume * 100).toStringAsFixed(0)}', // Menampilkan nilai persentase
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Lilita',
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+        actions: [
+          TextButton(
+            child: const Text(
+              'Tutup',
+              style: TextStyle(
+                fontFamily: 'Lilita',
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> playSound() async {
+    // Memutar file suara lokal atau dari URL
+    await _audioPlayer.play(DeviceFileSource('assets/audio/audiocoba1.mp3')); // Ganti path dengan file audio Anda
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundPg(),
-          // Positioned.fill(
-          //   child: Align(
-          //     alignment: Alignment.center,
-          //     child: Image.asset(
-          //       'android/assets/image/Biru_dan_Krem_Modern_Menuju_Stabilitas_Finansial_Presentation__1_-removebg-preview.png',
-          //       // Same background image as in HomeScreen
-          //     ),
-          //   ),
-          // ),
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/PENGATURAN.1 (2).png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Positioned(
-            top: 20,
-            left: 20,
-            child: IconButton(
-              icon: Icon(Icons.home, color: Colors.white, size: 30),
-              onPressed: () {
-                Navigator.pop(context); // Navigate back to home
-              },
+            top: 30,
+            left: 30,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const FaIcon(FontAwesomeIcons.arrowLeft),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                const Text(
+                  'Pengaturan',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Lilita',
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
           ),
           Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                'DALAM PENGEMBANGAN',
-                style: TextStyle(
-                  fontFamily: 'Lilita',
-                  fontSize: 24,
-                  color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(200, 60),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    backgroundColor: Colors.white,
+                  ),
+                  child: const Text(
+                    'SUARA',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Lilita',
+                      color: Colors.black,
+                    ),
+                  ),
+                  onPressed: () {
+                    showVolumeDialog('Suara');
+                  },
                 ),
-              ),
+                const SizedBox(height: 35),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(200, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      backgroundColor: Colors.white,
+                    ),
+                    child: const Text(
+                      'MUSIK',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Lilita',
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound();
+                      showVolumeDialog('Musik');
+                    }),
+              ],
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class FlutterVolumeController {
+  static void setVolume(double value) {
+    // Implementasi setVolume Anda
+  }
+
+  static Future<double> getVolume() async {
+    // Pastikan fungsi ini mengembalikan nilai double yang valid
+    // Gunakan nilai default jika hasilnya null
+    double? volume = await FlutterVolumeController.getVolume();
+    return volume; // default 0.5 jika null
   }
 }
 
