@@ -132,6 +132,7 @@ flutter:
     - assets/images/logo_unikki2.png
     - assets/images/quiz.png
     - assets/images/book.png
+    - assets/audio/audiocoba1.mp3
 
 
   fonts:

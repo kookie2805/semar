@@ -3211,14 +3211,15 @@ void showVolumeDialog(String type) {
                   activeColor: Colors.cyanAccent,
                   inactiveColor: Colors.grey,
                   onChanged: (value) {
-                    setState(() {
+                    setStateDialog(() {
+                      currentVolume = value;
                       if (type == 'Suara') {
                         volumeSuara = value;
                       } else {
                         volumeMusik = value;
                       }
                     });
-                    setStateDialog(() {}); // Perbarui slider di dalam dialog
+                     // Perbarui slider di dalam dialog
                     FlutterVolumeController.setVolume(value); // Panggil metode untuk mengatur volume
                     _audioPlayer.setVolume(value);
                   },
