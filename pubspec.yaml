@@ -132,6 +132,16 @@ flutter:
     - assets/images/logo_unikki2.png
     - assets/images/quiz.png
     - assets/images/book.png
+    - android/assets/image/loupe.png
+    - android/assets/image/obelisk.png
+    - android/assets/image/world.png
+    - android/assets/image/fried-rice.png
+    - android/assets/image/sampkng.png
+    - android/assets/image/sampkong.png
+    - android/assets/image/goakreo.png
+    - android/assets/image/tugumudaa.png
+    - android/assets/image/tahugim.png
+    - android/assets/image/Patung diponegoro.png
 
 
   fonts:

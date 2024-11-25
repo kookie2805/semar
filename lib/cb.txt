@@ -2033,7 +2033,7 @@ class _SjQuizPageState extends State<SejarahQuizPage> {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  'QUIZ',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -2573,7 +2573,7 @@ class _MonQuizPageState extends State<MonumenQuizPage> {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  'QUIZ',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -2856,7 +2856,7 @@ class _DesQuizPageState extends State<DestinasiQuizPage> {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  'QUIZ',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -3145,7 +3145,7 @@ class _MknQuizPageState extends State<MakananQuizPage> {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  'QUIZ',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -3511,7 +3511,7 @@ class SejarahSemarangPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEJARAH SEMARANG',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -3662,9 +3662,9 @@ class PertempuranPage extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                    width: 8.0), // Add some space between the icon and the text
+                    width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'PERTEMPURAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -3698,7 +3698,7 @@ class PertempuranPage extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun kotak tanpa aset
+// Fungsi untuk membangun kotak tanpa aset
   Widget _buildBox() {
     return Container(
       width: 560,
@@ -3732,35 +3732,45 @@ class PertempuranPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  // Teks deskripsi dengan pembatasan lebar
                   Flexible(
-  child: Container(
-    constraints: BoxConstraints(
-      maxWidth: 490, // Membatasi lebar maksimum agar teks lebih memanjang
-    ),
-    child: SingleChildScrollView(
-      child: Text(
-        'Pada masa lampau, Semarang memiliki peran penting bagi Hindia Belanda sebagai salah satu dari tiga pelabuhan utama (bersama Jakarta dan Surabaya) yang memasok hasil bumi dari pedalaman Jawa. Sejarahnya dimulai pada abad ke-8 M, ketika wilayah ini masih bernama Pragota, bagian dari Kerajaan Mataram Kuno. Dulunya, Pragota adalah pelabuhan dengan gugusan pulau-pulau kecil yang akhirnya menyatu membentuk daratan. Pada akhir abad ke-15, Pangeran Made Pandan ditempatkan di Perbukitan Pragota oleh Kerajaan Demak dengan maksud menyebarkan ajaran Islam.    Seiring berjalannya waktu, daerah tersebut semakin subur dan tumbuh pohon asam arang yang menjadi awal mula pemberian nama Semarang. Secara etimologis, nama Semarang berasal dari kata “sem” yang berarti asam/pohon asam dan kata “arang” yang berarti jarang.  Jika digabungkan, maka arti Semarang adalah asam yang jarang-jarang.    Pada tanggal 2 Mei 1547 yang bertepatan dengan Maulid Nabi Muhammad, yaitu 12 Rabiul Awal 954 Hijriah, ditetapkan sebagai hari jadi Kota Semarang berdasarkan hasil diskusi Sultan Hadiwijaya dan Sunan Kalijaga.',
-        style: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 16,
-          color: Colors.black,
-        ),
-      ),
-    ),
-  ),
-),
-
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: 270, // Membatasi lebar maksimum
+                      ),
+                      child: SingleChildScrollView(
+                        child: Text(
+                          'Pada 17 Agustus 1945, Soekarno dan Hatta memproklamasikan kemerdekaan Indonesia, membawa semangat baru bagi pejuang dan rakyat. Kabar ini menyebar hingga ke Semarang, di mana sedang berlangsung pelucutan senjata tentara Jepang. Namun, pada 14 Oktober 1945, Mayor Kido menolak menyerahkan senjata, memicu kemarahan warga Semarang yang menjadikan aula Rumah Sakit Purusara sebagai markas perlawanan. Pada hari yang sama, pemuda-pemuda rumah sakit menghadang tentara Jepang dan berhasil melucuti senjata mereka, namun balasan datang. Tentara Jepang menyiksa delapan polisi istimewa yang menjaga persediaan air di Wungkal. Ketika Dr. Kariadi berusaha memeriksa air yang diduga diracuni, ia ditembak di Jl. Pandanaran dan meninggal.  Kematian Dr. Kariadi memperkeruh keadaan. Pada 15 Oktober 1945, Angkatan Muda Semarang dan Tentara Keamanan Rakyat melawan 2.000 tentara Jepang. Pertempuran terjadi di Kintelan, Pandanaran, Jombang, dan Simpang Lima. Jepang membalas serangan Indonesia dengan memecah pasukannya dan menyerang hingga 16 Oktober, merebut penjara Bulu.  Pertempuran berlangsung hingga 19 Oktober. Gencatan senjata akhirnya tercapai setelah perundingan antara Indonesia, Jepang, dan perwakilan Sekutu, yang melucuti senjata Jepang pada 20 Oktober 1945, menandai berakhirnya Pertempuran Lima Hari di Semarang.',
+                          style: TextStyle(
+                            fontFamily: 'Poppins ',
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
+          ),
+          Container(
+            width: 1,
+            height: 250,
+            color: Colors.black, // Warna garis vertikal
+            margin: EdgeInsets.only(
+                top: 20, bottom: 20), // Margin atas dan bawah garis vertikal
+          ),
+          SizedBox(width: 80), // Jarak antara garis vertikal dan aset gambar
+          Image.asset(
+            'android/assets/image/asetLB.png', // Ganti dengan path aset gambar Anda
+            width: 150,
+            height: 150,
           ),
         ],
       ),
     );
   }
 }
-
 
 class AboutUsPage extends StatelessWidget {
   final List<Map<String, String>> teamMembers = [
@@ -4034,7 +4044,7 @@ class AsalUsulPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'ASAL USUL',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4105,13 +4115,13 @@ class AsalUsulPage extends StatelessWidget {
                   Flexible(
                     child: Container(
                       constraints: BoxConstraints(
-                        maxWidth: 490, // Membatasi lebar maksimum
+                        maxWidth: 270, // Membatasi lebar maksimum
                       ),
                       child: SingleChildScrollView(
                         child: Text(
                           'Pada masa lampau, Semarang memiliki peran penting bagi Hindia Belanda sebagai salah satu dari tiga pelabuhan utama (bersama Jakarta dan Surabaya) yang memasok hasil bumi dari pedalaman Jawa. Sejarahnya dimulai pada abad ke-8 M, ketika wilayah ini masih bernama Pragota, bagian dari Kerajaan Mataram Kuno. Dulunya, Pragota adalah pelabuhan dengan gugusan pulau-pulau kecil yang akhirnya menyatu membentuk daratan. Pada akhir abad ke-15, Pangeran Made Pandan ditempatkan di Perbukitan Pragota oleh Kerajaan Demak dengan maksud menyebarkan ajaran Islam.    Seiring berjalannya waktu, daerah tersebut semakin subur dan tumbuh pohon asam arang yang menjadi awal mula pemberian nama Semarang. Secara etimologis, nama Semarang berasal dari kata “sem” yang berarti asam/pohon asam dan kata “arang” yang berarti jarang.  Jika digabungkan, maka arti Semarang adalah asam yang jarang-jarang.    Pada tanggal 2 Mei 1547 yang bertepatan dengan Maulid Nabi Muhammad, yaitu 12 Rabiul Awal 954 Hijriah, ditetapkan sebagai hari jadi Kota Semarang berdasarkan hasil diskusi Sultan Hadiwijaya dan Sunan Kalijaga. ',
                           style: TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Poppins ',
                             fontSize: 16,
                             color: Colors.black,
                           ),
@@ -4123,7 +4133,19 @@ class AsalUsulPage extends StatelessWidget {
               ),
             ),
           ),
-          
+          Container(
+            width: 1,
+            height: 250,
+            color: Colors.black, // Warna garis vertikal
+            margin: EdgeInsets.only(
+                top: 20, bottom: 20), // Margin atas dan bawah garis vertikal
+          ),
+          SizedBox(width: 80), // Jarak antara garis vertikal dan aset gambar
+          Image.asset(
+            'android/assets/image/mnon.png', // Ganti dengan path aset gambar Anda
+            width: 165,
+            height: 165,
+          ),
         ],
       ),
     );
@@ -4152,7 +4174,7 @@ class MonumenPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4294,7 +4316,7 @@ class MonumenTugmudPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4396,6 +4418,314 @@ class MonumenTugmudPage extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
+                          MonumenTugpro1Page(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) =>
+                              FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      ),
+                    ));
+              },
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 120,
+            child: IconButton(
+              icon: Image.asset('android/assets/image/back.png',
+                  width: 45, height: 45),
+              onPressed: () {
+                Navigator.pop(context); // Use context here
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MonumenTugpro1Page extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          BackgroundPg(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Row(
+              children: [
+                IconButton(
+                  icon:
+                      Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => StartPage()),
+                    );
+                  },
+                ),
+                SizedBox(
+                    width: 1.0), // Add some space between the icon and the text
+                Text(
+                  'SEMAR\nSeputar Semarang',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40.0, right: 60.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  // Baris pertama kotak
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      _buildBox(
+                          context), // Pass the context to the _buildBox function
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  // Baris kedua kotak
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Fungsi untuk membangun kotak tanpa aset
+  Widget _buildBox(BuildContext context) {
+    // Add the BuildContext parameter
+    return Container(
+      width: 560,
+      height: 300,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(11),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'Tugu Proklamator',
+                        style: TextStyle(
+                          fontFamily: 'Lilita',
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // Add some space between the text and the image
+              // Use Transform.translate to move the image up
+              Transform.translate(
+                offset:
+                    Offset(0, -30), // Adjust the y-value to move the image up
+                child: Center(
+                  child: Image.asset(
+                    'android/assets/image/tuguproklamator.png',
+                    width: 650, // Increase the width
+                    height: 220, // Increase the height
+                  ),
+                ),
+              )
+            ],
+          ),
+          Positioned(
+            right: 0,
+            top: 120, // Adjust this value to move the button down
+            child: IconButton(
+              icon: Image.asset('android/assets/image/pixelarticons_next.png',
+                  width: 45, height: 45),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          MonumenTugpro2Page(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) =>
+                              FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      ),
+                    ));
+              },
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 120,
+            child: IconButton(
+              icon: Image.asset('android/assets/image/back.png',
+                  width: 45, height: 45),
+              onPressed: () {
+                Navigator.pop(context); // Use context here
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MonumenTugpro2Page extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          BackgroundPg(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Row(
+              children: [
+                IconButton(
+                  icon:
+                      Icon(Icons.arrow_back_ios, color: Colors.white, size: 30),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => StartPage()),
+                    );
+                  },
+                ),
+                SizedBox(
+                    width: 1.0), // Add some space between the icon and the text
+                Text(
+                  'SEMAR\nSeputar Semarang',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40.0, right: 60.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  // Baris pertama kotak
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      _buildBox(context), // Pass context if needed
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  // Baris kedua kotak
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Example of a method that might need context
+  Widget _buildBox(BuildContext context) {
+    return Container(
+      width: 560,
+      height: 300,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(11),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'Tugu Proklamator',
+                        style: TextStyle(
+                          fontFamily: 'Lilita',
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 100, left: 100),
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Text(
+                        'Tugu Proklamator Semarang dibangun pada tahun 1946 untuk memperingati satu tahun Kemerdekaan Indonesia. Tugu ini dirancang oleh Dra. Yos Masdani Tumbuan, seorang mahasiswi dari Ikatan Wanita Djakarta, dan berupa dua patung perunggu Sukarno dan Hatta yang berdiri berdampingan, dengan tinggi masing-masing 46 meter untuk Sukarno dan 43 meter untuk Hatta. Awalnya bernama Tugu Peringatan Satoe Tahoen Repoeblik Indonesia, nama ini kemudian diubah menjadi Tugu Proklamator untuk lebih mencerminkan penghormatan terhadap Soekarno dan Hatta sebagai proklamator. Tugu ini kini menjadi simbol perjuangan kemerdekaan dan tempat peringatan nasional di Semarang, yang mengingatkan masyarakat, terutama generasi muda, tentang pentingnya semangat persatuan dan pengorbanan dalam mempertahankan kemerdekaan.',
+                        style: TextStyle(
+                          fontFamily: 'Poppins ',
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Positioned(
+            right: 0,
+            top: 120,
+            child: IconButton(
+              icon: Image.asset('android/assets/image/pixelarticons_next.png',
+                  width: 45, height: 45),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
                           MonumenPatdip1Page(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) =>
@@ -4449,7 +4779,7 @@ class MonumenPatdip1Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4530,7 +4860,7 @@ class MonumenPatdip1Page extends StatelessWidget {
                     Offset(0, -30), // Adjust the y-value to move the image up
                 child: Center(
                   child: Image.asset(
-                    'android/assets/image/Patung diponegoro.png',
+                    'android/assets/image/patdip.png',
                     width: 650, // Increase the width
                     height: 220, // Increase the height
                   ),
@@ -4602,7 +4932,7 @@ class MonPatdip2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4735,7 +5065,7 @@ class DestinasiPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4877,7 +5207,7 @@ class DesGoaKreo extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MONUMEN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5032,7 +5362,7 @@ class DesSampoPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5185,7 +5515,7 @@ class DesSampoPage2 extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5340,7 +5670,7 @@ class DesLawangPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5493,7 +5823,7 @@ class DesLawang2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5648,7 +5978,7 @@ class DesGereja extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5801,7 +6131,7 @@ class DesGereja2 extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5934,7 +6264,7 @@ class MakananPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6076,7 +6406,7 @@ class MknLumpia2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'DESTINASI',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6231,7 +6561,7 @@ class MknBandengPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6384,7 +6714,7 @@ class MknBandeng2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6539,7 +6869,7 @@ class MknTahuPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6692,7 +7022,7 @@ class MknTahu2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6847,7 +7177,7 @@ class MknWingkoPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -7000,7 +7330,7 @@ class MknWingko2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'MAKANAN',
+                  'SEMAR\nSeputar Semarang',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
