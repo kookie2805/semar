@@ -3391,7 +3391,7 @@ class SejarahSemarangPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'SEJARAH SEMARANG',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -3544,7 +3544,7 @@ class PertempuranPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'SEJARAH SEMARANG',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4054,7 +4054,7 @@ class MonumenPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4196,7 +4196,7 @@ class MonumenTugmudPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4351,7 +4351,7 @@ class MonumenTugpro1Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4504,7 +4504,7 @@ class MonumenTugpro2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4659,7 +4659,7 @@ class MonumenPatdip1Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4812,7 +4812,7 @@ class MonPatdip2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -4967,7 +4967,7 @@ class MonTitikPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5120,7 +5120,7 @@ class MonTitik2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MONUMEN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5253,7 +5253,7 @@ class DestinasiPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5395,7 +5395,7 @@ class DesGoaKreo extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5550,7 +5550,7 @@ class DesSampoPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5703,7 +5703,7 @@ class DesSampoPage2 extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -5856,7 +5856,7 @@ class DesLawangPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6009,7 +6009,7 @@ class DesLawang2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6164,7 +6164,7 @@ class DesGereja extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6317,7 +6317,7 @@ class DesGereja2 extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'DESTINASI',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6450,7 +6450,7 @@ class MakananPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6592,7 +6592,7 @@ class MknLumpia2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6747,7 +6747,7 @@ class MknBandengPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -6900,7 +6900,7 @@ class MknBandeng2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -7055,7 +7055,7 @@ class MknTahuPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -7208,7 +7208,7 @@ class MknTahu2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -7363,7 +7363,7 @@ class MknWingkoPage extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -7516,7 +7516,7 @@ class MknWingko2Page extends StatelessWidget {
                 SizedBox(
                     width: 1.0), // Add some space between the icon and the text
                 Text(
-                  'SEMAR\nSeputar Semarang',
+                  'MAKANAN',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
